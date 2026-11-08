@@ -1,1 +1,1 @@
-# hostmanes e hosts
+# hostname e hosts
