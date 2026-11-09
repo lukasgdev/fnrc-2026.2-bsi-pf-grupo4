@@ -65,9 +65,8 @@
 | PC3 | `g4-pc3-vm1` e `g4-pc3-vm2` |
 | PC4 | `g4-pc4-vm1` e `g4-pc4-vm2` |
 
-![Topologia física do Grupo 4](fnrc-2026.2-bsi-pf-grupo4
-\imagens\topologia-fisica-grupo4.png)
+![Topologia física do Grupo 4](imagens/topologia-fisica-grupo4.png)
 
 ### 5.2 Topologia lógica
 
-![Topologia lógica do Grupo 4](imagens\topologia-logica-grupo4.png)
+![Topologia lógica do Grupo 4](imagens/topologia-logica-grupo4.png)
