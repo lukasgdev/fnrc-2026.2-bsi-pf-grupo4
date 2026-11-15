@@ -122,7 +122,6 @@ A distribuição ficou organizada da seguinte forma:
 | PC3 | `g4-pc3-vm1` e `g4-pc3-vm2` |
 | PC4 | `g4-pc4-vm1` e `g4-pc4-vm2` |
 
-<<<<<<< HEAD
 Na adaptação do diagrama, atualizamos os nomes e os endereços IP das máquinas para os valores correspondentes ao Grupo 4.
 
 Também mantivemos a representação das conexões em modo Bridge, permitindo visualizar como as máquinas virtuais estarão conectadas à rede física por meio de seus computadores hospedeiros.
@@ -148,10 +147,3 @@ Com o planejamento da rede concluído, a próxima etapa consiste na criação da
 Nessa etapa, serão definidos os recursos de hardware de cada VM e realizada a instalação do sistema operacional.
 
 **Próxima etapa:** [02 — Criação das máquinas virtuais](02-criacao-das-vms.md)
-=======
-![Topologia física do Grupo 4](imagens/topologia-fisica-grupo4.png)
-
-### 5.2 Topologia lógica
-
-![Topologia lógica do Grupo 4](imagens/topologia-logica-grupo4.png)
->>>>>>> 47c820ea077c106231a8357e5693c6c278dd4129
