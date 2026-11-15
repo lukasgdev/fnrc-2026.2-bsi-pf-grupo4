@@ -146,4 +146,4 @@ Com o planejamento da rede concluído, a próxima etapa consiste na criação da
 
 Nessa etapa, serão definidos os recursos de hardware de cada VM e realizada a instalação do sistema operacional.
 
-**Próxima etapa:** [02 — Criação das máquinas virtuais](02-criacao-das-vms.md)
+[⬅️ Voltar ao início](README.md) • [Avançar para criação das VMs ➡️](02-criacao-das-vms.md)
