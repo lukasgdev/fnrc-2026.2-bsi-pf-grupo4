@@ -126,7 +126,7 @@ Na adaptação do diagrama, atualizamos os nomes e os endereços IP das máquina
 
 Também mantivemos a representação das conexões em modo Bridge, permitindo visualizar como as máquinas virtuais estarão conectadas à rede física por meio de seus computadores hospedeiros.
 
-![Topologia física do Grupo 4](imagens\topologia-fisica-grupo4.png)
+![Topologia física do Grupo 4](imagens/topologia-fisica-grupo4.png)
 
 ### 5.2 Topologia lógica
 
@@ -136,7 +136,7 @@ No diagrama, identificamos cada VM com seu hostname curto e endereço IPv4, util
 
 Também incluímos a representação do switch, o endereço de broadcast 192.168.26.79 e o bloco /etc/hosts com os nomes e endereços das oito máquinas.
 
-![Topologia lógica do Grupo 4](imagens\topologia-logica-grupo4.png)
+![Topologia lógica do Grupo 4](imagens/topologia-logica-grupo4.png)
 
 Dessa forma, o diagrama apresenta a organização lógica da rede e como as máquinas virtuais poderão identificar umas às outras utilizando seus respectivos nomes e endereços IP.
 
