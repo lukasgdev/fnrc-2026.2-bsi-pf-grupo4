@@ -40,7 +40,7 @@ As configurações utilizadas foram:
 | Campo | Configuração |
 |---|---|
 | VM Name | `g4-pc1-vm1` |
-| VM Folder | `C:\2026.2\BSI\VM\NomeDoAluno` |
+| VM Folder | `C:\2026.2\BSI\VM\NomeDoAluno\g4-pc1-vm1` |
 | ISO Image | `ubuntu-22.04.5-live-server-amd64.iso` |
 | OS | Linux |
 | OS Distribution | Ubuntu |
