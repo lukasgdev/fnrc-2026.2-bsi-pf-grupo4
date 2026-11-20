@@ -16,3 +16,18 @@ Os usuários seguem o formato `nome.sobrenome` (letras minúsculas, sem espaços
 
 ## 2. Comandos executados
 
+Em cada VM, foi executado o seguinte bloco de comandos para criar os usuários em lote e definir suas respectivas senhas:
+
+```bash
+for u in lukas.gomes allysson.matheus abel.lucas vitor.henrique; do
+  sudo useradd -m -s /bin/bash "$u"
+  sudo passwd "$u"
+done
+```
+
+Para validar a criação das contas e dos diretórios pessoais, foram executados:
+
+```bash
+getent passwd lukas.gomes allysson.matheus abel.lucas vitor.henrique
+ls -l /home
+```
