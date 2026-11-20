@@ -247,6 +247,8 @@ sudo poweroff
 
 Com a VM desligada, abrimos **Configurações** no VirtualBox. Em **Sistema**, na aba **Placa-Mãe**, alteramos **Base Memory** para **550 MB** e confirmamos em **OK**.
 
+**Observação.** Com 512 MB de RAM, o Ubuntu Server apresentava um *kernel panic*. Por isso, aumentamos a memória da VM para 550 MB.
+
 ![Memória base ajustada para 550 MB no VirtualBox](<imagens/Preparação inicial do sistema - 3.jpeg>)
 
 ### 4.3 Verificação da memória no Ubuntu Server
