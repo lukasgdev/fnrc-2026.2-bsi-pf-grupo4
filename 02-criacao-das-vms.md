@@ -76,7 +76,7 @@ As configurações utilizadas foram:
 
 Configuramos inicialmente **1536 MB de memória RAM**, para disponibilizar os recursos necessários durante a instalação do Ubuntu Server.
 
-Após a instalação do sistema operacional e a preparação inicial, a memória será reduzida para 512 MB, permitindo executar duas máquinas virtuais simultaneamente com menor consumo de recursos.
+Após a instalação do sistema operacional e a preparação inicial, a memória será reduzida para 550 MB, permitindo executar duas máquinas virtuais simultaneamente com menor consumo de recursos.
 
 Também definimos um processador virtual e mantivemos a opção **Use EFI** desmarcada.
 
@@ -120,11 +120,144 @@ Após esse procedimento, a VM passou a aparecer na lista de máquinas do Virtual
 
 ## 3. Instalação do Ubuntu Server
 
-*Instalação manual do Ubuntu Server 22.04.5 LTS, incluindo idioma, teclado, rede, particionamento LVM, configuração do administrador e OpenSSH Server.*
+Com a primeira máquina virtual criada, iniciamos a VM no VirtualBox pela imagem ISO e instalamos manualmente o Ubuntu Server 22.04.5 LTS.
+
+### 3.1 Inicialização e configuração do teclado
+
+No menu de inicialização, selecionamos **Try or Install Ubuntu Server**.
+
+![Menu de inicialização com a opção Try or Install Ubuntu Server selecionada](<imagens/Install do Ubuntu Server - 1.jpeg>)
+
+Na tela de boas-vindas, selecionamos **English** como idioma do instalador.
+
+![Seleção do idioma do instalador](<imagens/Install do Ubuntu Server - 2.jpeg>)
+
+Quando o instalador ofereceu uma atualização, selecionamos **Continue without updating** para prosseguir com a versão incluída na ISO.
+
+![Opção para continuar sem atualizar o instalador](<imagens/Install do Ubuntu Server - 3.jpeg>)
+
+Em **Keyboard configuration**, selecionamos **Portuguese (Brazil)** nos campos **Layout** e **Variant** e confirmamos em **Done**.
+
+![Layout e variante do teclado em português do Brasil](<imagens/Install do Ubuntu Server - 4.jpeg>)
+
+### 3.2 Tipo de instalação e configuração de rede
+
+Na tela **Choose the type of installation**, mantivemos **Ubuntu Server** selecionado e confirmamos em **Done**.
+
+Em **Network configuration**, mantivemos a configuração apresentada pelo instalador. Na tela de proxy, deixamos o campo **Proxy address** em branco. Em **Ubuntu archive mirror configuration**, mantivemos o espelho de repositórios apresentado. Confirmamos cada tela em **Done**.
+
+### 3.3 Particionamento do disco virtual
+
+Na tela **Guided storage configuration**, selecionamos **Custom storage layout** e confirmamos em **Done** para definir manualmente as partições do disco virtual de 32 GB.
+
+![Seleção do particionamento personalizado](<imagens/Install do Ubuntu Server - 5.jpeg>)
+
+Na tela **Storage configuration**, selecionamos **free space** no disco virtual e escolhemos **Add GPT Partition**.
+
+![Seleção do espaço livre no disco virtual](<imagens/Install do Ubuntu Server - 6.jpeg>)
+
+Criamos a partição de inicialização com tamanho de `1G`, formato `ext4` e ponto de montagem `/boot). Confirmamos em **Create**.
+
+![Criação da partição ext4 montada em /boot](<imagens/Install do Ubuntu Server - 7.jpeg>)
+
+No espaço restante, selecionamos novamente **Add GPT Partition**. Usamos `30.997G`, selecionamos **Leave unformatted** e confirmamos em **Create**. Essa partição seria usada pelo LVM.
+
+![Criação da partição sem formatação destinada ao LVM](<imagens/Install do Ubuntu Server - 8.jpeg>)
+
+### 3.4 Criação do grupo LVM e dos volumes lógicos
+
+Com as partições criadas, selecionamos **Create volume group (LVM)**.
+
+![Opção para criar o grupo de volumes LVM](<imagens/Install do Ubuntu Server - 9.jpeg>)
+
+Definimos o nome do grupo como `ubuntu-vg`, marcamos **partition 3** como dispositivo e confirmamos em **Create**. O instalador mostrou `30.996G` disponíveis no grupo.
+
+![Configuração de ubuntu-vg com a partição 3 selecionada](<imagens/Install do Ubuntu Server - 10.jpeg>)
+
+Em `ubuntu-vg`, criamos os volumes lógicos com as configurações abaixo.
+
+| Volume lógico | Tamanho | Formato | Ponto de montagem |
+|---|---|---|---|
+| `ubuntu-lv` | `29G` | `ext4` | `/` |
+| `swap-lv` | `1.996G` | `swap` | — |
+
+Criamos primeiro `ubuntu-lv` para o sistema de arquivos raiz. Em seguida, usamos o espaço restante para criar `swap-lv` como área de troca.
+
+![Criação do volume lógico ubuntu-lv para o sistema de arquivos raiz](<imagens/Install do Ubuntu Server - 11.jpeg>)
+
+![Criação do volume lógico swap-lv para a área de troca](<imagens/Install do Ubuntu Server - 12.jpeg>)
+
+Revisamos o resumo do armazenamento e conferimos as entradas para `/`, `/boot` e `SWAP`. O instalador também mostrou a partição de `1.000M` reservada para o GRUB em modo BIOS. Selecionamos **Done** e, na tela de confirmação, **Continue** para aplicar as alterações ao disco virtual.
+
+![Resumo do particionamento e dos volumes lógicos antes da confirmação](<imagens/Install do Ubuntu Server - 13.jpeg>)
+
+### 3.5 Configuração do perfil e dos serviços
+
+Em **Profile configuration**, preenchemos os dados do administrador e identificamos o servidor com o hostname curto definido no planejamento da rede.
+
+| Campo | Configuração |
+|---|---|
+| Your name | `Administrador` |
+| Your servers name | Hostname curto da VM |
+| Pick a username | `administrador` |
+| Choose a password | adminifal |
+| Confirm your password | adminifal |
+
+Confirmamos o perfil em **Done**. A captura mostra o preenchimento na VM `g4-pc2-vm1`. Para a VM criada na seção anterior, o hostname correspondente é `g4-pc1-vm1`.
+
+![Perfil do administrador preenchido na VM g4-pc2-vm1](<imagens/Install do Ubuntu Server - 14.jpeg>)
+
+Na tela **Upgrade to Ubuntu Pro**, selecionamos **Skip for now** e avançamos em **Continue**.
+
+![Opção para prosseguir sem ativar o Ubuntu Pro](<imagens/Install do Ubuntu Server - 15.jpeg>)
+
+Na configuração do SSH, marcamos **Install OpenSSH server** para permitir o acesso remoto à VM e confirmamos em **Done**.
+
+Em **Featured server snaps**, deixamos todos os pacotes opcionais desmarcados e selecionamos **Done**.
+
+![Lista de snaps opcionais com todos os pacotes desmarcados](<imagens/Install do Ubuntu Server - 16.jpeg>)
+
+### 3.6 Conclusão da instalação
+
+Aguardamos a conclusão da instalação e selecionamos **Reboot Now** para reiniciar a máquina virtual. Após o reinício, seguimos para a preparação inicial do sistema.
 
 ## 4. Preparação inicial do sistema
 
-*Atualização dos pacotes, instalação dos utilitários de rede, download do script de validação e redução da memória RAM para 512 MB.*
+### 4.1 Primeiro acesso e atualização da lista de pacotes
+
+Após o reinício, aguardamos a tela de login do Ubuntu Server. Entramos com o usuário `administrador` e a senha definida durante a instalação.
+
+![Tela de login do Ubuntu Server após o primeiro reinício](<imagens/Preparação inicial do sistema - 1.jpeg>)
+
+No terminal, executamos o comando abaixo para atualizar a lista de pacotes disponíveis nos repositórios configurados.
+
+```bash
+sudo apt-get update
+```
+
+![Comando sudo apt-get update no terminal da VM](<imagens/Preparação inicial do sistema - 2.jpeg>)
+
+### 4.2 Ajuste da memória RAM no VirtualBox
+
+Após a atualização da lista de pacotes, desligamos a máquina virtual pelo terminal.
+
+```bash
+sudo poweroff
+```
+
+Com a VM desligada, abrimos **Configurações** no VirtualBox. Em **Sistema**, na aba **Placa-Mãe**, alteramos **Base Memory** para **550 MB** e confirmamos em **OK**.
+
+![Memória base ajustada para 550 MB no VirtualBox](<imagens/Preparação inicial do sistema - 3.jpeg>)
+
+### 4.3 Verificação da memória no Ubuntu Server
+
+Ligamos a VM novamente, entramos com o usuário `administrador` e executamos o comando abaixo.
+
+```bash
+free -h
+```
+
+Na linha `Mem:`, consultamos a coluna `total` para ver a memória reconhecida pelo Ubuntu e a coluna `available` para conferir quanto estava disponível.
 
 ## 5. Clonagem da máquina virtual
 
