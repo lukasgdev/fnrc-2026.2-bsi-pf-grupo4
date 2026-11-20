@@ -1,1 +1,18 @@
 # Usuários
+# Criação dos Usuários — Grupo 4
+
+## 1. Padronização adotada
+
+Em todas as 8 máquinas virtuais do Grupo 4 (`g4-pc1-vm1` a `g4-pc4-vm2`), além do usuário `administrador`, foram criados usuários individuais para cada integrante do grupo.
+
+Os usuários seguem o formato `nome.sobrenome` (letras minúsculas, sem espaços e sem acentos), com diretório pessoal em `/home/<usuário>` e shell `/bin/bash`:
+
+| Integrante | Usuário | Diretório Home | Shell |
+|---|---|---|---|
+| Lukas Gomes | `lukas.gomes` | `/home/lukas.gomes` | `/bin/bash` |
+| Allysson Matheus | `allysson.matheus` | `/home/allysson.matheus` | `/bin/bash` |
+| Abel Lucas | `abel.lucas` | `/home/abel.lucas` | `/bin/bash` |
+| Vitor Henrique | `vitor.henrique` | `/home/vitor.henrique` | `/bin/bash` |
+
+## 2. Comandos executados
+
