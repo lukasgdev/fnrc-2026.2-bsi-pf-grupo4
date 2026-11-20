@@ -198,7 +198,7 @@ Em **Profile configuration**, preenchemos os dados do administrador e identifica
 | Campo | Configuração |
 |---|---|
 | Your name | `Administrador` |
-| Your servers name | Hostname curto da VM |
+| Your servers name | nome do servidor (g2-pc2-vm1)|
 | Pick a username | `administrador` |
 | Choose a password | adminifal |
 | Confirm your password | adminifal |
