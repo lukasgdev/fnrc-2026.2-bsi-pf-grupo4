@@ -31,3 +31,22 @@ Para validar a criação das contas e dos diretórios pessoais, foram executados
 getent passwd lukas.gomes allysson.matheus abel.lucas vitor.henrique
 ls -l /home
 ```
+
+## 3. Evidências e saídas obtidas
+
+### Saída no terminal (`g4-pc3-vm1`)
+
+```text
+administrador@g4-pc3-vm1:~$ getent passwd lukas.gomes allysson.matheus abel.lucas vitor.henrique
+lukas.gomes:x:1001:1001::/home/lukas.gomes:/bin/bash
+allysson.matheus:x:1002:1002::/home/allysson.matheus:/bin/bash
+abel.lucas:x:1003:1003::/home/abel.lucas:/bin/bash
+vitor.henrique:x:1004:1004::/home/vitor.henrique:/bin/bash
+administrador@g4-pc3-vm1:~$ ls -l /home
+total 20
+drwxr-x--- 2 abel.lucas       abel.lucas       4096 Nov 20 20:00 abel.lucas
+drwxr-x--- 4 administrador    administrador    4096 Nov 20 19:59 administrador
+drwxr-x--- 2 allysson.matheus allysson.matheus 4096 Nov 20 20:00 allysson.matheus
+drwxr-x--- 2 lukas.gomes      lukas.gomes      4096 Nov 20 19:59 lukas.gomes
+drwxr-x--- 2 vitor.henrique   vitor.henrique   4096 Nov 20 20:00 vitor.henrique
+```
