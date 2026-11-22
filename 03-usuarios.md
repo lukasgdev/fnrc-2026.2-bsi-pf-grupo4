@@ -27,11 +27,20 @@ done
 
 > **Observação sobre a definição de senhas:** Ao executar o bloco acima, o terminal solicita primeiramente a senha do usuário `administrador` (devido ao `sudo`) e, em seguida, pede interativamente a nova senha (`New password:`) e a confirmação (`Retype new password:`) para cada um dos quatro usuários. Para padronizar e facilitar os testes entre as máquinas do grupo, adotamos a senha **`ifal123`** para todos os usuários criados.
 
-Para validar a criação das contas e dos diretórios pessoais, foram executados:
+Para validar a criação das contas, os diretórios pessoais em `/home` e o shell `/bin/bash`, foram executados os seguintes comandos de verificação:
 
 ```bash
 getent passwd lukas.gomes allysson.matheus abel.lucas vitor.henrique
 ls -l /home
+```
+
+### Teste de Acesso aos Usuários Criados
+
+Para garantir que as contas foram criadas com as senhas corretas e estão funcionando no sistema, realizamos o teste de login local utilizando o comando `su - <usuario>` para iniciar uma sessão limpa.
+
+```bash
+su - lukas.gomes
+exit
 ```
 
 ## 3. Evidências e saídas obtidas
