@@ -50,3 +50,11 @@ drwxr-x--- 2 allysson.matheus allysson.matheus 4096 Nov 20 20:00 allysson.matheu
 drwxr-x--- 2 lukas.gomes      lukas.gomes      4096 Nov 20 19:59 lukas.gomes
 drwxr-x--- 2 vitor.henrique   vitor.henrique   4096 Nov 20 20:00 vitor.henrique
 ```
+
+### Capturas de tela
+
+![Criação e verificação de usuários na g4-pc3-vm1](imagens/g4-pc3-vm1_usuarios.png)
+
+---
+
+[⬅️ Voltar para criação das VMs](02-criacao-das-vms.md) • [Avançar para rede e Netplan ➡️](04-rede-netplan.md)
