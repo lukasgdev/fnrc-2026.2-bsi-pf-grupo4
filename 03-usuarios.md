@@ -55,31 +55,19 @@ ls -l /home
 
 ## 4. Testes de autenticação e ambiente dos usuários
 
-Conforme orientado no Roteiro 02, realizamos testes práticos de troca de sessão local utilizando o comando `su - <usuário>`. O uso do hífen (`-`) é fundamental porque inicia uma sessão de login completa (*Login Shell*), limpando as variáveis do `administrador` e posicionando o usuário diretamente em seu próprio diretório `/home/<usuário>`.
+Conforme orientado no Roteiro 02, realizamos testes práticos de validação de acesso utilizando o comando `su - <usuário>` para iniciar uma sessão de login completa (*Login Shell*), limpando as variáveis do `administrador` e posicionando o usuário diretamente em seu próprio diretório `/home/<usuário>`.
 
-Em cada sessão aberta, executamos `whoami` (para confirmar a identidade ativa) e `pwd` (para confirmar o carregamento do diretório pessoal correto), encerrando com `exit` para retornar ao administrador:
+Para testar todos os integrantes em sequência sem que o script padrão de logout (`~/.bash_logout`) limpasse a tela do terminal a cada saída, utilizamos a flag `-c` dentro de um laço `for`, solicitando a senha de cada conta e executando `whoami` (para confirmar a identidade ativa) e `pwd` (para confirmar o carregamento do diretório pessoal correto):
 
-**Comandos executados:**
+**Comando executado:**
 
 ```bash
-su - lukas.gomes
-whoami && pwd
-exit
-
-su - allysson.matheus
-whoami && pwd
-exit
-
-su - abel.lucas
-whoami && pwd
-exit
-
-su - vitor.henrique
-whoami && pwd
-exit
+for u in lukas.gomes allysson.matheus abel.lucas vitor.henrique; do
+  su - "$u" -c "whoami && pwd"
+done
 ```
 
-**Evidência (`g4-pc3-vm1` — testando o login dos 4 usuários):**
+**Evidência (`g4-pc3-vm1` — teste de autenticação e diretório pessoal dos 4 usuários):**
 
 ![Teste de login e ambiente dos quatro usuários na g4-pc3-vm1](imagens/g4-pc3-vm1_testes.png)
 
@@ -89,7 +77,7 @@ exit
 
 Para agilizar a implantação do ambiente no laboratório, os usuários criados e validados na VM matriz (`g4-pc3-vm1`) foram replicados para as demais máquinas virtuais do Grupo 4 por meio do processo de **clonagem no VirtualBox** (detalhado em [02-criacao-das-vms.md](02-criacao-das-vms.md)).
 
-Como a clonagem copia integralmente o sistema de arquivos e o banco de contas (`/etc/passwd`, `/etc/shadow` e diretórios `/home`), todas as 8 VMs (`g4-pc1-vm1` a `g4-pc4-vm2`) passaram a contar exatamente com o mesmo conjunto de usuários e senhas padronizadas, sem necessidade de repetir os comandos manualmente em cada máquina. A presença e a integridade dessas contas em toda a sub-rede `192.168.26.64/28` são confirmadas nos relatórios individuais gerados pelo script de validação na pasta `validacao/`.
+Como a clonagem copia integralmente o sistema de arquivos e o banco de contas (`/etc/passwd`, `/etc/shadow` e diretórios `/home`), todas as 8 VMs (`g4-pc1-vm1` a `g4-pc4-vm2`) passaram a contar exatamente com o mesmo conjunto de usuários e senhas padronizadas, sem necessidade de repetir os comandos manualmente em cada máquina.
 
 ---
 
