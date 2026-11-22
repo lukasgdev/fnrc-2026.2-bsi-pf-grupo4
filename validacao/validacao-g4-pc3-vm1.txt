@@ -1,0 +1,90 @@
+===============================================================
+ Validação do Projeto Final FNRC 2026.02 — Grupo 4
+ Domínio esperado: grupo4.bsi-26-2.maceio.lab
+ Data/hora: 22/11/2026 20:00:24
+ Hostname:  g4-pc3-vm1.grupo4.bsi-26-2.maceio.lab
+===============================================================
+
+→ 1. Configuração de rede (enp0s3)
+[PASSOU] Interface enp0s3 está UP
+[PASSOU] Endereço 192.168.26.69 pertence ao Grupo 4 (esperado para g4-pc3-vm1)
+[PASSOU] Máscara /28
+[PASSOU] Apenas um endereço IPv4 em enp0s3
+[PASSOU] Netplan com dhcp4 desativado (IP estático)
+[PASSOU] Endereço 192.168.26.69/28 declarado no Netplan
+[INFO]   Sem rota padrão (esperado: a rede do grupo não tem gateway)
+
+→ 2. Hostname
+[PASSOU] Hostname é o FQDN g4-pc3-vm1.grupo4.bsi-26-2.maceio.lab
+[PASSOU] /etc/hostname contém g4-pc3-vm1.grupo4.bsi-26-2.maceio.lab
+
+→ 3. /etc/hosts e resolução de nomes
+[PASSOU] Linha 127.0.1.1 aponta para g4-pc3-vm1.grupo4.bsi-26-2.maceio.lab
+[PASSOU] /etc/hosts: 192.168.26.65  g4-pc1-vm1.grupo4.bsi-26-2.maceio.lab  g4-pc1-vm1
+[PASSOU] getent hosts g4-pc1-vm1 -> 192.168.26.65
+[PASSOU] getent hosts g4-pc1-vm1.grupo4.bsi-26-2.maceio.lab -> 192.168.26.65
+[PASSOU] /etc/hosts: 192.168.26.66  g4-pc1-vm2.grupo4.bsi-26-2.maceio.lab  g4-pc1-vm2
+[PASSOU] getent hosts g4-pc1-vm2 -> 192.168.26.66
+[PASSOU] getent hosts g4-pc1-vm2.grupo4.bsi-26-2.maceio.lab -> 192.168.26.66
+[PASSOU] /etc/hosts: 192.168.26.67  g4-pc2-vm1.grupo4.bsi-26-2.maceio.lab  g4-pc2-vm1
+[PASSOU] getent hosts g4-pc2-vm1 -> 192.168.26.67
+[PASSOU] getent hosts g4-pc2-vm1.grupo4.bsi-26-2.maceio.lab -> 192.168.26.67
+[PASSOU] /etc/hosts: 192.168.26.68  g4-pc2-vm2.grupo4.bsi-26-2.maceio.lab  g4-pc2-vm2
+[PASSOU] getent hosts g4-pc2-vm2 -> 192.168.26.68
+[PASSOU] getent hosts g4-pc2-vm2.grupo4.bsi-26-2.maceio.lab -> 192.168.26.68
+[PASSOU] /etc/hosts: 192.168.26.69  g4-pc3-vm1.grupo4.bsi-26-2.maceio.lab  g4-pc3-vm1
+[PASSOU] getent hosts g4-pc3-vm1 -> 127.0.1.1
+[PASSOU] getent hosts g4-pc3-vm1.grupo4.bsi-26-2.maceio.lab -> 127.0.1.1
+[PASSOU] /etc/hosts: 192.168.26.70  g4-pc3-vm2.grupo4.bsi-26-2.maceio.lab  g4-pc3-vm2
+[PASSOU] getent hosts g4-pc3-vm2 -> 192.168.26.70
+[PASSOU] getent hosts g4-pc3-vm2.grupo4.bsi-26-2.maceio.lab -> 192.168.26.70
+[PASSOU] /etc/hosts: 192.168.26.71  g4-pc4-vm1.grupo4.bsi-26-2.maceio.lab  g4-pc4-vm1
+[PASSOU] getent hosts g4-pc4-vm1 -> 192.168.26.71
+[PASSOU] getent hosts g4-pc4-vm1.grupo4.bsi-26-2.maceio.lab -> 192.168.26.71
+[PASSOU] /etc/hosts: 192.168.26.72  g4-pc4-vm2.grupo4.bsi-26-2.maceio.lab  g4-pc4-vm2
+[PASSOU] getent hosts g4-pc4-vm2 -> 192.168.26.72
+[PASSOU] getent hosts g4-pc4-vm2.grupo4.bsi-26-2.maceio.lab -> 192.168.26.72
+
+→ 4. Usuários
+[PASSOU] Usuário 'administrador' existe
+[PASSOU] Diretório /home/administrador existe
+[PASSOU] Shell de 'administrador' é /bin/bash
+[PASSOU] Usuário 'lukas.gomes' existe
+[PASSOU] Diretório /home/lukas.gomes existe
+[PASSOU] Shell de 'lukas.gomes' é /bin/bash
+[PASSOU] Usuário 'allysson.matheus' existe
+[PASSOU] Diretório /home/allysson.matheus existe
+[PASSOU] Shell de 'allysson.matheus' é /bin/bash
+[PASSOU] Usuário 'abel.lucas' existe
+[PASSOU] Diretório /home/abel.lucas existe
+[PASSOU] Shell de 'abel.lucas' é /bin/bash
+[PASSOU] Usuário 'vitor.henrique' existe
+[PASSOU] Diretório /home/vitor.henrique existe
+[PASSOU] Shell de 'vitor.henrique' é /bin/bash
+
+→ 5. Serviço SSH
+[PASSOU] Serviço SSH ativo
+[PASSOU] Porta 22/TCP em escuta
+
+→ 6. Conectividade com as VMs do grupo
+[PASSOU] ping g4-pc1-vm1 (192.168.26.65) respondeu
+[PASSOU] SSH (porta 22) acessível em g4-pc1-vm1
+[PASSOU] ping g4-pc1-vm2 (192.168.26.66) respondeu
+[PASSOU] SSH (porta 22) acessível em g4-pc1-vm2
+[PASSOU] ping g4-pc2-vm1 (192.168.26.67) respondeu
+[PASSOU] SSH (porta 22) acessível em g4-pc2-vm1
+[PASSOU] ping g4-pc2-vm2 (192.168.26.68) respondeu
+[PASSOU] SSH (porta 22) acessível em g4-pc2-vm2
+[PASSOU] ping g4-pc3-vm2 (192.168.26.70) respondeu
+[PASSOU] SSH (porta 22) acessível em g4-pc3-vm2
+[PASSOU] ping g4-pc4-vm1 (192.168.26.71) respondeu
+[PASSOU] SSH (porta 22) acessível em g4-pc4-vm1
+[PASSOU] ping g4-pc4-vm2 (192.168.26.72) respondeu
+[PASSOU] SSH (porta 22) acessível em g4-pc4-vm2
+
+===============================================================
+ RESUMO — g4-pc3-vm1.grupo4.bsi-26-2.maceio.lab (192.168.26.69)
+   Passou: 64   Falhou: 0   Avisos: 0
+   Aproveitamento: 100%
+   Resultado: VM configurada corretamente
+===============================================================
