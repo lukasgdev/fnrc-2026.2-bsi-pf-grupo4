@@ -25,6 +25,8 @@ for u in lukas.gomes allysson.matheus abel.lucas vitor.henrique; do
 done
 ```
 
+> **Observação sobre a definição de senhas:** Ao executar o bloco acima, o terminal solicita primeiramente a senha do usuário `administrador` (devido ao `sudo`) e, em seguida, pede interativamente a nova senha (`New password:`) e a confirmação (`Retype new password:`) para cada um dos quatro usuários. Para padronizar e facilitar os testes entre as máquinas do grupo, adotamos a senha **`ifal123`** para todos os usuários criados.
+
 Para validar a criação das contas e dos diretórios pessoais, foram executados:
 
 ```bash
