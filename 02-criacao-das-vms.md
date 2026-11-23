@@ -143,6 +143,7 @@ Em **Keyboard configuration**, selecionamos **Portuguese (Brazil)** nos campos *
 ### 3.2 Tipo de instalação e configuração de rede
 
 Na tela **Choose the type of installation**, mantivemos **Ubuntu Server** selecionado e confirmamos em **Done**.
+<img width="800" height="594" alt="image" src="https://github.com/user-attachments/assets/e09de316-08af-4d10-b171-0cd16f0e62ed" />
 
 Em **Network configuration**, mantivemos a configuração apresentada pelo instalador. Na tela de proxy, deixamos o campo **Proxy address** em branco. Em **Ubuntu archive mirror configuration**, mantivemos o espelho de repositórios apresentado. Confirmamos cada tela em **Done**.
 
