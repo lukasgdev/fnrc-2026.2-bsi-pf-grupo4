@@ -203,29 +203,6 @@ ping -c 4 <IP_do_PC4>
 <!-- PENDENTE (laboratório): print da VM com `ping -c 4 <IP_do_PC4>`, 0% packet loss. -->
 ![Ping da g4-pc4-vm1 para o PC4](imagens/g4-pc4-vm1_ping-vm-host.png)
  
-### 7.3 Rotas até `google.com` e `one.one.one.one`
- 
-Por fim, rastreamos a rota até o Google e até o servidor DNS da Cloudflare (`one.one.one.one`, IP `1.1.1.1`). Esse teste confirma de uma vez a resolução de nomes (DNS) e a saída pelo gateway. Como o `traceroute` não vem instalado por padrão no Ubuntu Server, instalamos o pacote antes.
- 
-**Comandos executados:**
- 
-```bash
-sudo apt install traceroute
-traceroute google.com
-traceroute one.one.one.one
-```
- 
-> **Comportamento durante a execução:** nos dois casos, o nome é resolvido para um endereço IP, e o **primeiro salto** é o gateway do laboratório (`172.20.20.1`), seguido dos roteadores externos até o destino.
- 
-**Evidência (`g4-pc4-vm1` — traceroute para google.com):**
- 
-<!-- PENDENTE (laboratório): print do `traceroute google.com` com o hop 1 em 172.20.20.1. -->
-![Traceroute para google.com na g4-pc4-vm1](imagens/g4-pc4-vm1_traceroute-google.png)
- 
-**Evidência (`g4-pc4-vm1` — traceroute para one.one.one.one):**
- 
-<!-- PENDENTE (laboratório): print do `traceroute one.one.one.one` mostrando a resolução para 1.1.1.1. -->
-![Traceroute para one.one.one.one na g4-pc4-vm1](imagens/g4-pc4-vm1_traceroute-cloudflare.png)
  
 ---
  
